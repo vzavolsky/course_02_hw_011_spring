@@ -1,15 +1,15 @@
 package com.zavolsky.course_02.controllers;
 
 import com.zavolsky.course_02.services.CartImpl;
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
-@Scope("session")
+@RequestMapping("/order")
 public class CartController {
     private final CartImpl cartImpl;
 
@@ -22,17 +22,17 @@ public class CartController {
         return "hi";
     }
 
-    @GetMapping(path = "/store/order/add")
+    @GetMapping(path = "/add")
     public String[] addGoods(@RequestParam("goods") String goods) {
         return cartImpl.addGoods(goods);
     }
 
-    @GetMapping(path = "/store/order/get")
+    @GetMapping(path = "/get")
     public List<Integer> getGoods() {
         return cartImpl.getGoods();
     }
 
-    @GetMapping(path = "/store/order/getCartID")
+    @GetMapping(path = "/getCartID")
     public Integer getCartID() {
         return cartImpl.getCartID();
     }

@@ -3,16 +3,18 @@ package com.zavolsky.course_02.services;
 import com.zavolsky.course_02.CartService;
 import com.zavolsky.course_02.domain.Cart;
 import com.zavolsky.course_02.exceptions.BadRequestException;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Scope("session")
 public class CartImpl implements CartService {
 
-    Cart cart = new Cart();
+    private final Cart cart;
+
+    public CartImpl(Cart cart) {
+        this.cart = cart;
+    }
 
     public String[] addGoods(String goods) {
         if (!goods.matches("^[0-9,]+$")) {
