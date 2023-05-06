@@ -29,4 +29,8 @@ public class Cart {
     public void setListOfGoods(int goodsID) {
         this.listOfGoods.add(goodsID);
     }
+
+    public void setListOfGoods(List<Integer> goodsIDs) {
+        this.listOfGoods.addAll(goodsIDs);
+    }
 }

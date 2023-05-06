@@ -23,7 +23,7 @@ public class CartController {
     }
 
     @GetMapping(path = "/add")
-    public String[] addGoods(@RequestParam("goods") String goods) {
+    public List<Integer> addGoods(@RequestParam("goods") List<Integer> goods) {
         return cartImpl.addGoods(goods);
     }
 

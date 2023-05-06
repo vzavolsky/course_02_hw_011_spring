@@ -30,6 +30,11 @@ public class CartImpl implements CartService {
         return goodsToAdd;
     }
 
+    public List<Integer> addGoods(List<Integer> goods) {
+        cart.setListOfGoods(goods);
+        return goods;
+    }
+
     public List<Integer> getGoods() {
         return cart.getListOfGoods();
     }
